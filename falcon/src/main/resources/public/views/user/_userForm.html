@@ -1,0 +1,30 @@
+<crudheader title="Usuários" icon="glyphicon-user"></crudheader>
+
+<div ng-messages="thisForm.inputuser.$error" class="alert alert-danger" ng-show="!thisForm.$pristine && thisForm.inputuser.$invalid">
+    <div ng-message="required">User field is required!</div>
+</div>  
+<div class="alert alert-danger" ng-show="message">
+    <div>{{message}}</div>
+</div>    
+
+<div class="form-group">
+    <div class="col-xs-5">
+        <label for="inputuser">User</label>
+        <input name="inputuser" type="text" ng-model="user.login" class="form-control" required>
+    </div>   
+</div>
+
+<div class="form-group">
+    <div class="col-xs-2">
+        <label for="inputrole">Email</label>
+        <input name="inputrole" type="text" ng-model="user.mail" class="form-control">
+    </div>   
+</div>                                  
+
+<div class="btn-group">
+	<input type="submit" id="submit" ng-disabled="thisForm.$invalid" value="Salvar" class="btn btn-success" />
+</div>	   
+<div class="btn-group">
+   	<input type="button" ng-click="service.go('/userlist')"  class="btn btn-danger" value="Cancelar" novalidade/>   
+</div>
+    	

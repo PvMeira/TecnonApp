@@ -30,7 +30,8 @@
 					removeaction: '&',
 					registers: '=',
 					columntitles: '=',
-					valuestolist: '='
+					valuestolist: '=',
+					pagetoedit: '@'
 				},
 				restrict : 'E',
 				templateUrl: '/views/directive-templates/tablepl-template.html',

@@ -1,6 +1,6 @@
 <crudheader title="Usuários" icon="glyphicon-user"></crudheader>
 
-<button type="button" class="btn btn-primary" ng-click="service.go('/useredit')">
+<button type="button" class="btn btn-primary" ng-click="service.go('/usernew')">
 	Novo
 	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 </button>
@@ -9,5 +9,6 @@
 		 removeaction="removeUser()" 
 		 selectaction="selectUser(item)"
 		 columntitles="['ID', 'Usuário', 'Email']"
-		 valuestolist="['id', 'login', 'mail']">
+		 valuestolist="['id', 'login', 'mail']"
+		 pagetoedit="#useredit">
 </tablepl>

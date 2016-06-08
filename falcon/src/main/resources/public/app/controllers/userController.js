@@ -2,33 +2,68 @@
 	'use strict';
 
 	angular.module('app')
-		.controller("UserController", ['$scope', '$location', '$resource', 'notify', 'UserService', UserController]);
+		.controller("UserAddController", ['$scope', '$location', '$resource', 'notify', 'UserService', UserAddController])
+		.controller("UserEditController", ['$scope', '$location', '$resource', '$routeParams', 'notify', 'UserService', UserEditController])
+		.controller("UserListController", ['$scope', '$location', '$resource', 'notify', 'UserService', UserListController]);
 	
-    function UserController ($scope, $location, $resource, notify, UserService){
+	function UserAddController ($scope, $location, $resource, notify, UserService){
+		var self = this;
+		$scope.user = new User();  
+		
+		function User(id, login, mail) {
+			this.id = id;
+		    this.login = login;
+		    this.mail = mail;
+		}
+		
+		$scope.submitForm = save;
+		
+		function save() {
+        	$resource('/users/').save($scope.user,
+	    		function(data, status) {
+	    			$location.path('/userlist');
+	    			notify.successOnSave();
+	        	}, 
+	        	function(data, status) {
+//		        		$scope.message = "Não foi possível cadastrar o registro.";
+	        	});
+        }   
+	}
+	
+	function UserEditController  ($scope, $location, $resource, $routeParams, notify, UserService){
+		var self = this;
+		$scope.user = $resource('/users/:id').get({id:$routeParams.id});
+		
+		$scope.submitForm = save;
+		
+		function save() {
+        	$resource('/users/:id', { id: '@_id' }, {
+        	    update: {
+        	        method: 'PUT'
+        	      }
+        	    }).update($scope.user,
+	    		function(data, status) {
+	    			$location.path('/userlist');
+	    			notify.successOnSave();
+	        	}, 
+	        	function(data, status) {
+//		        		$scope.message = "Não foi possível cadastrar o registro.";
+	        	});
+        }   
+	}
+	
+    function UserListController ($scope, $location, $resource, notify, UserService){
     	var self = this;
         $scope.user;  
-        $scope.message = null;
 
-        $scope.submitForm = saveUser;
         $scope.removeUser = removeUser;
         $scope.selectUser = selectUser;
         
         init();
         
         function init() {
-        	clearUser();
         	getUsers();
         }        
-        
-        function User(id, user, role) {
-        	this.id = id;
-            this.user = user;
-            this.role = role;
-        }
-        
-        function clearUser() {
-        	$scope.user = new User();
-        }
         
         function getUsers(){
 	    	UserService.getUsers().query(null, 
@@ -47,23 +82,10 @@
 	        		function(data) {
 		        		var index = $scope.items.indexOf($scope.user);
 		        		$scope.items.splice(index, 1);
-		        		clearUser();
 		        		notify.successOnRemove();
 	        		});
         	}
         }    
         
-        function saveUser() {
-        	$resource('/users/').save($scope.user,
-	    		function(data, status) {
-	    			$scope.items.push($scope.user);
-	    			clearUser();
-	    			$location.path('/userlist');
-	    			notify.successOnSave();
-	        	}, 
-	        	function(data, status) {
-	        		$scope.message = "Não foi possível cadastrar o registro.";
-	        	});
-        }   
     }     	
 })();

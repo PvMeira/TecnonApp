@@ -18,12 +18,16 @@
 		})
 		.when('/userlist', {
 			templateUrl : 'views/user/userList.html',
-			controller : 'UserController as controller'
+			controller : 'UserListController as controller'
 		})	
-		.when('/useredit', {
-			templateUrl : 'views/user/userEdit.html',
-			controller : 'UserController as controller'
-		})			
+		.when('/usernew', {
+			templateUrl : 'views/user/userAddForm.html',
+			controller : 'UserAddController as controller'
+		})	
+		.when('/useredit/:id', {
+			templateUrl : 'views/user/userEditForm.html',
+			controller : 'UserEditController as controller'
+		})	
 		.otherwise('/');
 		
 		$httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';		

@@ -50,6 +50,11 @@ private static final Logger LOGGER = LoggerFactory.getLogger(UserResource.class)
 		return new ResponseEntity<User>(HttpStatus.OK);
 	}	
 	
+	@RequestMapping(method=RequestMethod.PUT)
+	public void update(@RequestBody User user){
+		userRepository.save(user);		
+	}	
+	
 	@RequestMapping(value="/{id}",method=RequestMethod.DELETE)
 	public void delete(@PathVariable("id") Long id){
 		userRepository.delete(id);		
