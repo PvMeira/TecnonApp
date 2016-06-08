@@ -9,7 +9,7 @@
             var urlBase = '/users/';
             
             var service = {
-            		getUsers : getUsers,
+        		getUsers : getUsers,
                 remove : remove,
                 persist : persist
             };

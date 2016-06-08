@@ -1,91 +1,94 @@
 <!DOCTYPE html>
 <html ng-app="app">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" type="image/png" href="site/images/favicon.png" />
-
-    <title>Tecnon App</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="./site/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="./site/css/signin.css" rel="stylesheet">
-    <link href="./site/css/app.css" rel="stylesheet">
-    <style>
-	    [ng\:cloak], [ng-cloak], .ng-cloak {
-		  display: none !important;
-		}
-    </style>
-</head>
-
- <body class="body-index" ng-cloak>
-
-    <!-- Static navbar -->
-    <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div id="navbar" class="navbar-collapse collapse" ng-controller="Navigation as controller">
-          <ul class="nav navbar-nav" ng-if="authenticated">
-            <li><a class="menu-text" href="#/">
-            	<span class="glyphicon glyphicon-home menu-icon" aria-hidden="true"></span>
-           	</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle menu-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              	Cadastros<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-	            <li><a class="menu-text" href="#/userlist">
-	            	<span class="glyphicon glyphicon-user menu-icon" aria-hidden="true"></span>
-	            	Usuário
-            	</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right"  ng-if="authenticated">
-            <li><a href="#" class="menu-text" ng-click="controller.logout()">
-            	<span class="glyphicon glyphicon-off menu-icon" aria-hidden="true"></span>
-            </a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-	<!-- container -->
-    <div class="container" ng-if="authenticated" ng-view>
-    </div>
-    
-    <div class="container" ng-controller="Navigation as controller" ng-include="'./views/login.html'" ng-if="!authenticated">
-    </div>
-	<!-- /container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./site/js/jquery.min.js"></script>
-    <script src="./site/js/bootstrap.min.js"></script>
-
-	<script src="//code.jquery.com/jquery-2.2.0.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>        
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.min.js"></script>		
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	    
-	<script src="./app/app.js" ></script>
-	<script src="./app/loginController.js" ></script>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="">
+	    <meta name="author" content="">
+	    <link rel="icon" type="image/png" href="site/images/favicon.png" />
 	
-	<script src="./app/directives/directives.js" ></script>
-	<script src="./app/directives/table-directive.js" ></script>
-	  
-	<script src="./app/controllers/userController.js" ></script>	
+	    <title>Tecnon App</title>
 	
-	<script src="./app/services/userService.js" ></script>		
+	    <!-- Bootstrap core CSS -->
+	    <link href="./site/css/bootstrap.min.css" rel="stylesheet">
 	
-</body>
+	    <!-- Custom styles for this template -->
+	    <link href="./site/css/signin.css" rel="stylesheet">
+	    <link href="./site/css/app.css" rel="stylesheet">
+	    <link href="./site/css/pnotify.custom.min.css" rel="stylesheet">
+	    <link href="./site/css/pnotify-hack.css" rel="stylesheet">
+	    <style>
+		    [ng\:cloak], [ng-cloak], .ng-cloak {
+			  display: none !important;
+			}
+	    </style>
+	</head>
+	
+	 <body class="body-index" ng-cloak>
+	
+	    <!-- Static navbar -->
+	    <nav class="navbar navbar-default navbar-static-top">
+	      <div class="container">
+	        <div id="navbar" class="navbar-collapse collapse" ng-controller="Navigation as controller">
+	          <ul class="nav navbar-nav" ng-if="authenticated">
+	            <li><a class="menu-text" href="#/">
+	            	<span class="glyphicon glyphicon-home menu-icon" aria-hidden="true"></span>
+	           	</a></li>
+	            <li class="dropdown">
+	              <a class="dropdown-toggle menu-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+	              	Cadastros<span class="caret"></span></a>
+	              <ul class="dropdown-menu">
+		            <li><a class="menu-text" href="#/userlist">
+		            	<span class="glyphicon glyphicon-user menu-icon" aria-hidden="true"></span>
+		            	Usuário
+	            	</a></li>
+	              </ul>
+	            </li>
+	          </ul>
+	          <ul class="nav navbar-nav navbar-right"  ng-if="authenticated">
+	            <li><a href="#" class="menu-text" ng-click="controller.logout()">
+	            	<span class="glyphicon glyphicon-off menu-icon" aria-hidden="true"></span>
+	            </a></li>
+	          </ul>
+	        </div><!--/.nav-collapse -->
+	      </div>
+	    </nav>
+	
+		<!-- container -->
+	    <div class="container" ng-if="authenticated" ng-view>
+	    </div>
+	    
+	    <div class="container" ng-controller="Navigation as controller" ng-include="'./views/login.html'" ng-if="!authenticated">
+	    </div>
+		<!-- /container -->
+	
+	
+	    <!-- Bootstrap core JavaScript
+	    ================================================== -->
+	    <!-- Placed at the end of the document so the pages load faster -->
+	    <script src="./site/js/jquery.min.js"></script>
+	    <script src="./site/js/bootstrap.min.js"></script>
+	    <script src="./site/js/pnotify.custom.min.js"></script>
+	
+		<script src="//code.jquery.com/jquery-2.2.0.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>        
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.min.js"></script>		
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>	
+		    
+		<script src="./app/app.js" ></script>
+		<script src="./app/loginController.js" ></script>
+		<script src="./app/services/notifyService.js" ></script>
+		
+		<script src="./app/directives/directives.js" ></script>
+		<script src="./app/directives/table-directive.js" ></script>
+		  
+		<script src="./app/controllers/userController.js" ></script>	
+		
+		<script src="./app/services/userService.js" ></script>		
+	</body>
 
-<footer>
-</footer>
+	<footer>
+	</footer>
 </html>

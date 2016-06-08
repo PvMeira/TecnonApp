@@ -2,11 +2,10 @@
 	'use strict';
 
 	angular.module('app')
-		.controller("UserController", ['$scope', '$location', '$http', '$resource', 'UserService', UserController]);
+		.controller("UserController", ['$scope', '$location', '$resource', 'notify', 'UserService', UserController]);
 	
-    function UserController ($scope, $location, $http, $resource, UserService){
+    function UserController ($scope, $location, $resource, notify, UserService){
     	var self = this;
-//        self.userSelected = null;
         $scope.user;  
         $scope.message = null;
 
@@ -39,7 +38,6 @@
         }
         
         function selectUser(user) {
-//        	self.userSelected = user;
         	$scope.user = user;
         }
         
@@ -50,6 +48,7 @@
 		        		var index = $scope.items.indexOf($scope.user);
 		        		$scope.items.splice(index, 1);
 		        		clearUser();
+		        		notify.successOnRemove();
 	        		});
         	}
         }    
@@ -60,6 +59,7 @@
 	    			$scope.items.push($scope.user);
 	    			clearUser();
 	    			$location.path('/userlist');
+	    			notify.successOnSave();
 	        	}, 
 	        	function(data, status) {
 	        		$scope.message = "Não foi possível cadastrar o registro.";
