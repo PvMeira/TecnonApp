@@ -1,0 +1,48 @@
+.btn {
+    width: 100px;
+}
+
+.page-header {
+	display: -webkit-box;
+    margin: 0px 0 10px;
+	color: #337ab7 !important;    
+}
+
+.page-header-title {
+	width: 95%;
+    margin-left	: 10px;
+}
+
+.body-index {
+	padding-top: 0px !important;
+    background: white;
+}
+
+.menu-icon {
+	font-size: 20px;
+    padding-right: 10px;
+}
+
+.menu-text {
+	font-size: 20px;
+    color: #337ab7 !important;
+}
+
+.container {
+	width: 100%;
+}
+
+.table-title {
+	background: #337ab7 !important;
+    height: 50px !important;
+    font-size: 20px;
+    color: white;
+}
+
+.table-footer {
+    text-align: right
+}
+
+.table-panel {
+	margin-top: 15px;
+}
