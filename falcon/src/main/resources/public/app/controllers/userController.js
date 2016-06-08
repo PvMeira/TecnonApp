@@ -6,7 +6,7 @@
 		.controller("UserEditController", ['$scope', '$location', '$resource', '$routeParams', 'notify', 'UserService', UserEditController])
 		.controller("UserListController", ['$scope', '$location', '$resource', 'notify', 'UserService', UserListController]);
 	
-	function UserAddController ($scope, $location, $resource, notify, UserService){
+	function UserAddController($scope, $location, $resource, notify, UserService){
 		var self = this;
 		$scope.user = new User();  
 		
@@ -19,18 +19,19 @@
 		$scope.submitForm = save;
 		
 		function save() {
+			console.log($scope.user);
         	$resource('/users/').save($scope.user,
 	    		function(data, status) {
 	    			$location.path('/userlist');
 	    			notify.successOnSave();
 	        	}, 
 	        	function(data, status) {
-//		        		$scope.message = "Não foi possível cadastrar o registro.";
+	        		$scope.message = "Não foi possível Salvar o registro.";
 	        	});
         }   
 	}
 	
-	function UserEditController  ($scope, $location, $resource, $routeParams, notify, UserService){
+	function UserEditController($scope, $location, $resource, $routeParams, notify, UserService){
 		var self = this;
 		$scope.user = $resource('/users/:id').get({id:$routeParams.id});
 		
@@ -47,12 +48,12 @@
 	    			notify.successOnSave();
 	        	}, 
 	        	function(data, status) {
-//		        		$scope.message = "Não foi possível cadastrar o registro.";
+		        		$scope.message = "Não foi possível Alterar o registro.";
 	        	});
         }   
 	}
 	
-    function UserListController ($scope, $location, $resource, notify, UserService){
+    function UserListController($scope, $location, $resource, notify, UserService){
     	var self = this;
         $scope.user;  
 

@@ -1,0 +1,27 @@
+<!-- <crudheader title="{{title}}" icon="{{icon}}"></crudheader> -->
+
+<!-- <form name="thisForm" class="form-horizontal" role="form" ng-submit="fireSubmitAction()"> -->
+<!-- 	<div ng-include="formtemplateurl"></div> -->
+	
+<!-- 	<div class="btn-group"> -->
+<!-- 		<input type="submit" id="submit" ng-disabled="thisForm.$invalid" value="Salvar" class="btn btn-success" /> -->
+<!-- 	</div>	    -->
+<!-- 	<div class="btn-group"> -->
+<!-- 	   	<input type="button" ng-click="service.go('/userlist')"  class="btn btn-danger" value="Cancelar 1" novalidade/>    -->
+<!-- 	</div> -->
+<!-- </form> -->
+
+<crudheader title="1 Usuários" icon="glyphicon-user"></crudheader>
+
+<form name="thisForm" class="form-horizontal" role="form" ng-submit="submitForm()">
+	<div ng-include="'/views/user/_userForm.html'"></div>
+	
+<!-- 	<div class="btn-group"> -->
+<!-- 		<input type="submit" id="submit" ng-disabled="thisForm.$invalid" value="Salvar 1" class="btn btn-success" /> -->
+<!-- 	</div>	    -->
+<!-- 	<div class="btn-group"> -->
+<!-- 	   	<input type="button" ng-click="go('/userlist')"  class="btn btn-danger" value="Cancelar 1" novalidade/>    -->
+<!-- 	</div> -->
+    	
+</form>
+

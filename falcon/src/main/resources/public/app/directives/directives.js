@@ -12,5 +12,7 @@
 				restrict : 'E',
 				templateUrl: '/views/directive-templates/crudheader-template.html',
 			};
-		});
+		})
+		
+		;
 })();
