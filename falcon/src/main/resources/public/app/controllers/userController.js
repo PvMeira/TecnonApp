@@ -2,11 +2,11 @@
 	'use strict';
 
 	angular.module('app')
-		.controller("UserAddController", ['$scope', '$location', '$resource', 'notify', 'UserService', UserAddController])
-		.controller("UserEditController", ['$scope', '$location', '$resource', '$routeParams', 'notify', 'UserService', UserEditController])
-		.controller("UserListController", ['$scope', '$location', '$resource', 'notify', 'UserService', UserListController]);
+		.controller("UserAddController", ['$scope', 'UserService', UserAddController])
+		.controller("UserEditController", ['$scope', '$routeParams', 'UserService', UserEditController])
+		.controller("UserListController", ['$scope', 'UserService', UserListController]);
 	
-	function UserAddController($scope, $location, $resource, notify, UserService){
+	function UserAddController($scope, UserService){
 		var self = this;
 		$scope.user = new User();  
 		
@@ -17,42 +17,22 @@
 		}
 		
 		$scope.submitForm = save;
-		
 		function save() {
-        	$resource('/users/').save($scope.user,
-	    		function(data, status) {
-	    			$location.path('/userlist');
-	    			notify.successOnSave();
-	        	}, 
-	        	function(data, status) {
-	        		$scope.message = "Não foi possível Salvar o registro.";
-	        	});
+			UserService.save($scope, $scope.user);
         }   
 	}
 	
-	function UserEditController($scope, $location, $resource, $routeParams, notify, UserService){
+	function UserEditController($scope, $routeParams, UserService){
 		var self = this;
-		$scope.user = $resource('/users/:id').get({id:$routeParams.id});
+		$scope.user = UserService.findById($routeParams.id);
 		
 		$scope.submitForm = save;
-		
 		function save() {
-        	$resource('/users/:id', { id: '@_id' }, {
-        	    update: {
-        	        method: 'PUT'
-        	      }
-        	    }).update($scope.user,
-	    		function(data, status) {
-	    			$location.path('/userlist');
-	    			notify.successOnSave();
-	        	}, 
-	        	function(data, status) {
-		        		$scope.message = "Não foi possível Alterar o registro.";
-	        	});
+			UserService.update($scope, $scope.user);
         }   
 	}
 	
-    function UserListController($scope, $location, $resource, notify, UserService){
+    function UserListController($scope, UserService){
     	var self = this;
         $scope.user;  
 
@@ -62,13 +42,11 @@
         init();
         
         function init() {
-        	getUsers();
+        	findAll();
         }        
         
-        function getUsers(){
-        	$resource('/users/').query(function(result) {
-        		$scope.items = result;
-        	});
+        function findAll(){
+        	$scope.items = UserService.findAll();
         }
         
         function selectUser(user) {
@@ -76,14 +54,7 @@
         }
         
         function removeUser() {
-        	if ($scope.user) {
-	        	$resource('/users/:id').delete({id:$scope.user.id},
-	        		function(data) {
-		        		var index = $scope.items.indexOf($scope.user);
-		        		$scope.items.splice(index, 1);
-		        		notify.successOnRemove();
-	        		});
-        	}
+        	UserService.remove($scope.user, $scope.items);
         }    
         
     }     	
