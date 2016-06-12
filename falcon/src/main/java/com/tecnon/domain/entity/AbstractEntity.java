@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * @author irlampert
  */
-public abstract class AbstractEntity<PK_TYPE> 
+public abstract class AbstractEntity<PK_TYPE extends Serializable> 
 	implements Serializable, Cloneable, Comparable<AbstractEntity<PK_TYPE>> {
 	
 	private static final long serialVersionUID = 1L;

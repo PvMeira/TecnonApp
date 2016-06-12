@@ -19,7 +19,6 @@
 		$scope.submitForm = save;
 		
 		function save() {
-			console.log($scope.user);
         	$resource('/users/').save($scope.user,
 	    		function(data, status) {
 	    			$location.path('/userlist');
@@ -67,10 +66,9 @@
         }        
         
         function getUsers(){
-	    	UserService.getUsers().query(null, 
-	            function(result) {
-	                $scope.items = result;                       
-	            })        	
+        	$resource('/users/').query(function(result) {
+        		$scope.items = result;
+        	});
         }
         
         function selectUser(user) {

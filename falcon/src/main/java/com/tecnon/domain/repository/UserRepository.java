@@ -9,6 +9,6 @@ import com.tecnon.domain.entity.User;
  * @author irlampert1
  */
 @Repository
-public interface UserRepository 
+public interface UserRepository
 	extends CrudRepository<User, Long> {
 }
