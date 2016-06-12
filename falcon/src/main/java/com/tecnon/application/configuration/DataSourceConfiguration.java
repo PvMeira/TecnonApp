@@ -28,7 +28,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories(
         entityManagerFactoryRef = "entityManagerFactory",
         transactionManagerRef = "transactionManager",
-        basePackages = {"com.tecnon.domain.repository", "com.tecnon.infrastructure.repository.spring"})
+        basePackages = {"com.tecnon.domain.repository", "com.tecnon.integration.repository.spring"})
 public class DataSourceConfiguration {
 
 	@Autowired

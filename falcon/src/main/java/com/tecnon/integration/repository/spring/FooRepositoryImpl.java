@@ -1,4 +1,4 @@
-package com.tecnon.infrastructure.repository.spring;
+package com.tecnon.integration.repository.spring;
 
 import java.util.Arrays;
 import java.util.List;

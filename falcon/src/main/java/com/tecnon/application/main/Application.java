@@ -26,7 +26,7 @@ import com.tecnon.domain.repository.FooRepository;
 @ComponentScan(basePackages= {
 		"com.tecnon.application",
 		"com.tecnon.domain",
-		"com.tecnon.infrastructure"}, 
+		"com.tecnon.integration"}, 
     lazyInit=true)
 @SpringBootApplication
 @SuppressWarnings("all")

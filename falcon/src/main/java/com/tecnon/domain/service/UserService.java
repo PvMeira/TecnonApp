@@ -1,7 +1,5 @@
 package com.tecnon.domain.service;
 
-import org.springframework.stereotype.Service;
-
 /**
  * @author irlampert1
  */
