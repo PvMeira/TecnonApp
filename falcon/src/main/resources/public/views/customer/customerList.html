@@ -1,0 +1,14 @@
+<crudheader title="Clientes" icon="glyphicon-tags"></crudheader>
+
+<button type="button" class="btn btn-primary" ng-click="service.go('/customernew')">
+	Novo
+	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+</button>
+
+<tablepl registers="registers" 
+		 removeaction="removeRegister()" 
+		 selectaction="selectRegister(item)"
+		 columntitles="['ID', 'Nome', 'CPF']"
+		 valuestolist="['id', 'name', 'document']"
+		 pagetoedit="#customeredit">
+</tablepl>

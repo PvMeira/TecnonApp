@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tecnon.domain.entity.User;
 import com.tecnon.domain.repository.UserRepository;
-import com.tecnon.domain.service.UserService;
 
 /**
  * @author irlampert1
@@ -16,14 +15,12 @@ import com.tecnon.domain.service.UserService;
 public class UserResource
 	extends AbstractCrudResource<User, Long> {
 
-	public UserRepository userRepository;
-	public UserService userService;
+	private UserRepository userRepository;
 	
 	@Autowired
-	public UserResource(UserRepository userRepository, UserService userService) {
+	public UserResource(UserRepository userRepository) {
 		super(userRepository);
 		this.userRepository = userRepository;
-		this.userService = userService;
 	}
 	
 }
