@@ -54,7 +54,7 @@
         }
         
         function removeRegister() {
-        	CustomerService.remove($scope.registers, $scope.items);
+        	CustomerService.remove($scope.register, $scope.registers);
         }    
         
     }     	

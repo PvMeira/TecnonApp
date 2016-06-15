@@ -1,0 +1,18 @@
+<div ng-messages="form.$error" class="alert alert-danger" ng-show="!form.$pristine && form.$invalid">
+    <div ng-message="required">Campos em vermelho são obrigatórios!</div>
+</div>  
+
+<div class="alert alert-danger" ng-show="message">
+    <div>{{message}}</div>
+</div>    
+
+<inputform label="Nome" type="text" ngmodel="register.name" required="true"></inputform>
+<inputform label="Cep" type="text" ngmodel="register.zipCode"></inputform>
+<inputform label="Estado" type="text" ngmodel="register.country"></inputform>
+
+<div class="btn-group">
+	<input type="submit" id="submit" ng-disabled="form.$invalid" value="Salvar" class="btn btn-success" />
+</div>	   
+<div class="btn-group">
+   	<input type="button" ng-click="service.go('/citylist')"  class="btn btn-danger" value="Cancelar" novalidade/>   
+</div>

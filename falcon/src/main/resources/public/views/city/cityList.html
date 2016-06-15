@@ -1,0 +1,14 @@
+<crudheader title="Cidades" icon="glyphicon-map-marker"></crudheader>
+
+<button type="button" class="btn btn-primary" ng-click="service.go('/citynew')">
+	Novo
+	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+</button>
+
+<tablepl registers="registers" 
+		 removeaction="removeRegister()" 
+		 selectaction="selectRegister(item)"
+		 columntitles="['ID', 'Nome', 'Cep', 'Estado']"
+		 valuestolist="['id', 'name', 'zipCode', 'country']"
+		 pagetoedit="#cityedit">
+</tablepl>

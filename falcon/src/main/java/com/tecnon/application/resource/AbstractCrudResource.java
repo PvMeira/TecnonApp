@@ -20,7 +20,7 @@ import com.tecnon.domain.entity.AbstractEntity;
  */
 public abstract class AbstractCrudResource<ENTITY extends AbstractEntity<PK>, PK extends Serializable> {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(UserResource.class);
+//	private static final Logger LOGGER = LoggerFactory.getLogger(??Resource.class);
 	
 	private final CrudRepository<ENTITY, PK> repository;
 	
