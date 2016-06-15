@@ -6,12 +6,21 @@
     <div>{{message}}</div>
 </div>    
 
-<inputtext label="Login" type="text" ngmodel="user.login" required="true"></inputtext>
-<inputtext label="Email" type="text" ngmodel="user.mail"></inputtext>
+<div id="formButtons">
+	<div class="btn-group">
+		<input type="submit" id="submit" ng-disabled="form.$invalid" value="Salvar" class="btn btn-success" />
+	</div>	   
+	<div class="btn-group">
+	   	<input type="button" ng-click="service.go('/userlist')"  class="btn btn-danger" value="Cancelar" novalidade/>   
+	</div>
+	<hr style="margin-top: 10px;" />
+</div>
 
-<div class="btn-group">
-	<input type="submit" id="submit" ng-disabled="form.$invalid" value="Salvar" class="btn btn-success" />
-</div>	   
-<div class="btn-group">
-   	<input type="button" ng-click="service.go('/userlist')"  class="btn btn-danger" value="Cancelar" novalidade/>   
+<div>
+	<uib-tabset active="active">
+		<uib-tab index="0" heading="Informações">
+			<inputtext label="Login" type="text" ngmodel="user.login" required="true"></inputtext>
+			<inputtext label="Email" type="text" ngmodel="user.mail"></inputtext>
+		</uib-tab>
+	</uib-tabset>
 </div>
