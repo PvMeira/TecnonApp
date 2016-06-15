@@ -1,0 +1,9 @@
+<div>
+	<div ng-messages="form.$error" class="alert alert-danger" ng-show="!form.$pristine && form.$invalid">
+	    <div ng-message="required">Campos em vermelho são obrigatórios!</div>
+	</div>  
+	
+	<div class="alert alert-danger" ng-show="message">
+	    <div>{{message}}</div>
+	</div> 
+</div>

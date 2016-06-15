@@ -1,17 +1,39 @@
-<div ng-messages="form.$error" class="alert alert-danger" ng-show="!form.$pristine && form.$invalid">
-    <div ng-message="required">Campos em vermelho são obrigatórios!</div>
-</div>  
+<!-- <div ng-messages="form.$error" class="alert alert-danger" ng-show="!form.$pristine && form.$invalid"> -->
+<!--     <div ng-message="required">Campos em vermelho são obrigatórios!</div> -->
+<!-- </div>   -->
 
-<div class="alert alert-danger" ng-show="message">
-    <div>{{message}}</div>
-</div>    
+<!-- <div class="alert alert-danger" ng-show="message"> -->
+<!--     <div>{{message}}</div> -->
+<!-- </div>     -->
 
-<inputform label="Nome" type="text" ngmodel="register.name" required="true"></inputform>
-<inputform label="CPF" type="text" ngmodel="register.document"></inputform>
+<!-- <formalerts></formalerts> -->
 
-<div class="btn-group">
-	<input type="submit" id="submit" ng-disabled="form.$invalid" value="Salvar" class="btn btn-success" />
-</div>	   
-<div class="btn-group">
-   	<input type="button" ng-click="service.go('/customerlist')"  class="btn btn-danger" value="Cancelar" novalidade/>   
+<div id="formButtons">
+	<div class="btn-group">
+		<input type="submit" id="submit" ng-disabled="form.$invalid" class="btn btn-success form-actions" value="Salvar">
+		</input>
+	</div>	   
+	<div class="btn-group">
+	   	<input type="button" ng-click="service.go('/customerlist')"  class="btn btn-danger form-actions" value="Cancelar" novalidade/>   
+	</div>
+	<hr style="margin-top: 10px;" />
+</div>
+	
+<div>
+	<uib-tabset active="active">
+		<uib-tab index="0" heading="Informações">
+			<inputtext label="Nome" type="text" ngmodel="register.name" required="true"></inputtext>
+			<inputtext label="CPF" type="text" ngmodel="register.document"></inputtext>
+		</uib-tab>
+		
+		<uib-tab index="1" heading="Contatos">
+		</uib-tab>
+		
+		<uib-tab index="2" heading="Endereço">
+		</uib-tab>
+		
+		<uib-tab index="3" heading="Observação">
+			<inputtextarea label="Observação do Cliente" ngmodel="register.observation" maxlength="200"></inputtextarea>
+		</uib-tab>
+	</uib-tabset>
 </div>

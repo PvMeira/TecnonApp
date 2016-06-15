@@ -10,10 +10,11 @@
 		var self = this;
 		$scope.register = new Register();  
 		
-		function Register(id, name, document) {
+		function Register(id, name, document, observation) {
 			this.id = id;
 		    this.name = name;
 		    this.document = document;
+		    this.observation = observation;
 		}
 		
 		$scope.submitForm = save;

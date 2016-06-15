@@ -17,6 +17,7 @@ public class Customer
 	private Long id;
 	private String name;
 	private String document;
+	private String observation;
 	
 	public Customer() {
 	}
@@ -53,6 +54,14 @@ public class Customer
 		this.document = document;
 	}
 
+	public String getObservation() {
+		return observation;
+	}
+	
+	public void setObservation(String observation) {
+		this.observation = observation;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -60,6 +69,7 @@ public class Customer
 		result = prime * result + ((document == null) ? 0 : document.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((observation == null) ? 0 : observation.hashCode());
 		return result;
 	}
 
@@ -87,12 +97,18 @@ public class Customer
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
+		if (observation == null) {
+			if (other.observation != null)
+				return false;
+		} else if (!observation.equals(other.observation))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", document=" + document + "]";
+		return "Customer [id=" + id + ", name=" + name + ", document=" + document + ", observation=" + observation
+				+ "]";
 	}
-	
+
 }

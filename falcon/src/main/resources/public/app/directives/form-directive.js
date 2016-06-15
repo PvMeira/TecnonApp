@@ -2,7 +2,17 @@
 	'use strict';
 
 	angular.module('app')
-		.directive('inputform', function() {
+		.directive('formalerts', function() {
+			return {
+				restrict : 'E',
+				scope : {
+				},
+				replace: true,
+				templateUrl: '/views/directive-templates/formalerts-template.html',
+			};
+		})
+	
+		.directive('inputtext', function() {
 			return {
 				restrict : 'E',
 				scope : {
@@ -12,10 +22,26 @@
 					ngmodel: '='
 				},
 				replace: true,
-				templateUrl: '/views/directive-templates/inputform-template.html',
+				templateUrl: '/views/directive-templates/inputtext-template.html',
 			};
-		});
+		})
 	
+		.directive('inputtextarea', function() {
+			return {
+				restrict : 'E',
+				scope : {
+					label: '@',
+					maxlength: '@',
+					required: '@',
+					ngmodel: '='
+				},
+				replace: true,
+				templateUrl: '/views/directive-templates/inputtextarea-template.html',
+			};
+		})
+		
+		;
+		
 //		.directive('formpl', function() {
 //			return {
 //				scope : {

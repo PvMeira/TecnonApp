@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('app',['ngRoute',  'ngResource', 'ngMessages'])
+		.module('app',['ui.bootstrap', 'ngRoute', 'ngResource', 'ngMessages'])
 		.controller('Home', ['$http', homeController])
         .factory('GlobalService', ['$location', GlobalService])
         .run(function($rootScope, GlobalService) {
