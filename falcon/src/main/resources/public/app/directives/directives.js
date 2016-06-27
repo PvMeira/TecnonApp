@@ -6,11 +6,15 @@
 		.directive('crudheader', function() {
 			return {
 				scope : {
-					title: '@',
-					icon: '@'
+					kind: '@'
 				},
 				restrict : 'E',
 				templateUrl: '/views/directive-templates/crudheader-template.html',
+				link : function(scope, elem) {
+					var type = scope.kind;
+					scope.icon = Kinds[type].icon; 
+					scope.title = Kinds[type].name;
+				}
 			};
 		})
 		
@@ -30,6 +34,21 @@
 				}
 			};
 		})
+		
+//		.directive('dialog', function() {
+//			return {
+//				scope : {
+//					modalid: '@',
+//					text: '@',
+//					icon: '@',
+//					width: '@',
+//					bodycontent: '@',
+//					footercontent: '@'
+//				},
+//				restrict : 'AE',
+//				templateUrl: '/views/directive-templates/dialog-template.html'
+//			};
+//		})
 		
 		;
 })();

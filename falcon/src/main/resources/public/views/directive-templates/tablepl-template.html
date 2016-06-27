@@ -6,7 +6,7 @@
 			        <td ng-repeat='item in columntitles'>
 				    	{{item}}
 			        </td>
-		            <td style='width: 240px;'>Ações</td>
+		            <td style='width: 240px;' ng-if="!hideactions">Ações</td>
 	            </tr>
 		    </thead>
 		    <tbody>
@@ -14,7 +14,7 @@
 		        	<td ng-repeat='value in valuestolist'>
 		        		{{item[value]}}
 		        	</td>
-		            <td>
+		            <td ng-if="!hideactions">
 		            	<a href='{{pagetoedit}}/{{item.id}}' ng-click='fireSelectAction(item)' 
 		            		class='btn btn-primary table-action' style='margin-right: 5px;' > 
 		            		Editar 

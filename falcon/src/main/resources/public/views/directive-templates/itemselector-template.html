@@ -1,0 +1,52 @@
+<div class="form-group">
+
+	<div id="div" ng-class="{'input-form-div col-xs-5 required-div': required, 'input-form-div col-xs-5 normal-div': !required}">
+		<label for="{{label}}" ng-if="required" class="input-form-label required-label" >{{label}}*</label>
+		<label for="{{label}}" ng-if="!required" class="input-form-label" >{{label}}</label>
+		
+		<div style="display: flex;">
+			<input name="{{label}}" 
+				disabled="true" 
+				ng-model="ngmodel" 
+				style="background: white; cursor: default;"
+				placeholder="{{label}}" 
+				class="form-control input-form-input" 
+				ng-required=required>
+
+			<div data-toggle="modal" data-target="#registersDialog" style="margin-top: -5px;">
+				<span class="glyphicon glyphicon-folder-open itemselector-icon" aria-hidden="true" ></span>
+			</div>
+			
+			<div data-toggle="modal" data-target="#registersDialog" style="margin-top: -5px;">	
+				<span class="glyphicon glyphicon-erase itemselector-icon" aria-hidden="true"></span>
+			</div>
+			
+		</div>
+	</div>
+
+	<div id="registersDialog" class="modal fade" tabindex="-1" role="dialog">
+	    <div class="modal-dialog" style="width: 80%;"">
+			<div class="modal-content">
+				<div class="modal-header" style="display: flex;">
+					<span class="glyphicon {{icon}}" aria-hidden="true" style="font-size: 25px !important; margin-right: 10px;"></span>
+					<h4 class="modal-title" style="font-size: 20px !important; margin-right: 10px;">{{title}}</h4>
+				</div>
+				
+				<div class="modal-body">
+					<tablepl registers=registers 
+							 hideactions="true"
+							 columntitles=columntitles
+							 valuestolist=valuestolist>
+					</tablepl>
+				</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-primary" ng-click="fireConfirmAction()" data-dismiss="modal">Confirmar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+

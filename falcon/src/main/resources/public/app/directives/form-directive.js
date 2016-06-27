@@ -2,15 +2,6 @@
 	'use strict';
 
 	angular.module('app')
-		.directive('formalerts', function() {
-			return {
-				restrict : 'E',
-				scope : {
-				},
-				replace: true,
-				templateUrl: '/views/directive-templates/formalerts-template.html',
-			};
-		})
 	
 		.directive('inputtext', function() {
 			return {
@@ -40,7 +31,41 @@
 			};
 		})
 		
+		.directive('itemselector', function() {
+			return {
+				restrict : 'E',
+				scope : {
+					label: '@',
+					required: '@',
+					ngmodel: '=',
+					registers: '=',
+					columntitles: '=',
+					valuestolist: '=',
+					kind: '@'
+				},
+				replace: true,
+				templateUrl: '/views/directive-templates/itemselector-template.html',
+				link : function(scope, elem) {
+					console.log(scope.registers);
+					
+					var type = scope.kind;
+					scope.icon = Kinds[type].icon; 
+					scope.title = Kinds[type].name;
+				}
+			};
+		})
+		
 		;
+	
+//		.directive('formalerts', function() {
+//			return {
+//				restrict : 'E',
+//				scope : {
+//				},
+//				replace: true,
+//				templateUrl: '/views/directive-templates/formalerts-template.html',
+//			};
+//		})
 		
 //		.directive('formpl', function() {
 //			return {

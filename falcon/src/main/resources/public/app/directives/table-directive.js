@@ -31,6 +31,7 @@
 					registers: '=',
 					columntitles: '=',
 					valuestolist: '=',
+					hideactions: '@',
 					pagetoedit: '@'
 				},
 				restrict : 'E',

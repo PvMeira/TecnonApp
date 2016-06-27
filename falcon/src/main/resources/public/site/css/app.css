@@ -157,3 +157,15 @@
 .tab-content {
 	margin-top:15px;
 }
+
+.itemselector-icon {
+    margin-left: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #337ab7;
+}
+
+.itemselector-icon:hover {
+	color: #2e5577;
+}
+	

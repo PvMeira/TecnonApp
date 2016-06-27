@@ -24,6 +24,12 @@
 		<uib-tab index="0" heading="Informações">
 			<inputtext label="Nome" type="text" ngmodel="register.name" required="true"></inputtext>
 			<inputtext label="CPF" type="text" ngmodel="register.document"></inputtext>
+			<itemselector kind="CITY" label="Cidade" 
+						  required="true"
+						  registers="allCities()"
+						  columntitles="['ID', 'Nome', 'Cep', 'Estado']"
+		 				  valuestolist="['id', 'name', 'zipCode', 'country']">
+		 	</itemselector>
 		</uib-tab>
 		
 		<uib-tab index="1" heading="Contatos">

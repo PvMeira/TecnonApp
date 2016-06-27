@@ -2,11 +2,11 @@
 	'use strict';
 
 	angular.module('app')
-		.controller("CustomerAddController", ['$scope', 'CustomerService', CustomerAddController])
+		.controller("CustomerAddController", ['$scope', 'CityService', 'CustomerService', CustomerAddController])
 		.controller("CustomerEditController", ['$scope', '$routeParams', 'CustomerService', CustomerEditController])
 		.controller("CustomerListController", ['$scope', 'CustomerService', CustomerListController]);
 	
-	function CustomerAddController($scope, CustomerService){
+	function CustomerAddController($scope, CityService, CustomerService){
 		var self = this;
 		$scope.register = new Register();  
 		
@@ -21,6 +21,10 @@
 		function save() {
 			CustomerService.save($scope, $scope.register);
         }   
+		
+		function allCities() {
+			return CityService.findAll();
+		}
 	}
 	
 	function CustomerEditController($scope, $routeParams, CustomerService){
