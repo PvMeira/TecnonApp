@@ -22,9 +22,9 @@
 			CustomerService.save($scope, $scope.register);
         }   
 		
-		function allCities() {
-			return CityService.findAll();
-		}
+//		function allCities() {
+//			return CityService.findAll();
+//		}
 	}
 	
 	function CustomerEditController($scope, $routeParams, CustomerService){

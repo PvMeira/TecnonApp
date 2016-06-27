@@ -24,29 +24,25 @@
 		</div>
 	</div>
 
-	<div id="registersDialog" class="modal fade" tabindex="-1" role="dialog">
-	    <div class="modal-dialog" style="width: 80%;"">
-			<div class="modal-content">
-				<div class="modal-header" style="display: flex;">
-					<span class="glyphicon {{icon}}" aria-hidden="true" style="font-size: 25px !important; margin-right: 10px;"></span>
-					<h4 class="modal-title" style="font-size: 20px !important; margin-right: 10px;">{{title}}</h4>
-				</div>
-				
-				<div class="modal-body">
-					<tablepl registers=registers 
-							 hideactions="true"
-							 columntitles=columntitles
-							 valuestolist=valuestolist>
-					</tablepl>
-				</div>
-				
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-					<button type="button" class="btn btn-primary" ng-click="fireConfirmAction()" data-dismiss="modal">Confirmar</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	
+	<dialog modalid="registersDialog"
+		    icon={{icon}}
+		    title={{title}}
+		    width= "80%">
+	    
+			<dialog-body>
+				<tablepl registers=registers 
+						 hideactions="true"
+						 columntitles=columntitles
+						 valuestolist=valuestolist>
+				</tablepl>
+			</dialog-body>
+			
+			<dialog-footer>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				<button type="button" class="btn btn-primary" ng-click="fireConfirmAction()" data-dismiss="modal">Confirmar</button>
+			</dialog-footer>
+			
+	</dialog>
+
 </div>
 

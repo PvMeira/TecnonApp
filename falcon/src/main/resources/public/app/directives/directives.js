@@ -35,20 +35,23 @@
 			};
 		})
 		
-//		.directive('dialog', function() {
-//			return {
-//				scope : {
-//					modalid: '@',
-//					text: '@',
-//					icon: '@',
-//					width: '@',
-//					bodycontent: '@',
-//					footercontent: '@'
-//				},
-//				restrict : 'AE',
-//				templateUrl: '/views/directive-templates/dialog-template.html'
-//			};
-//		})
+		.directive('dialog', function() {
+			return {
+				scope : {
+					modalid: '@',
+					title: '@',
+					icon: '@',
+					width: '@'
+				},
+				transclude: {
+					'dbody': 'dialogBody', // mandatory transclusion
+					'dfooter': '?dialogFooter'  // optional transclusion
+				},
+	            replace: true,
+				restrict: 'E',
+				templateUrl: '/views/directive-templates/dialog-template.html'
+			};
+		})
 		
 		;
 })();
