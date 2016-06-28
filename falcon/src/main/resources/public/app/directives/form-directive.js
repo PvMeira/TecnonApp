@@ -37,17 +37,16 @@
 				scope : {
 					label: '@',
 					required: '@',
-					ngmodel: '=',
-					registers: '=',
+					model: '=',
 					columntitles: '=',
 					valuestolist: '=',
 					kind: '@'
 				},
+				controller: '@',
+				name: 'listcontroller',
 				replace: true,
 				templateUrl: '/views/directive-templates/itemselector-template.html',
 				link : function(scope, elem) {
-					console.log(scope.registers);
-					
 					var type = scope.kind;
 					scope.icon = Kinds[type].icon; 
 					scope.title = Kinds[type].name;

@@ -46,7 +46,7 @@
         	findAll();
         }        
         
-        function findAll(){
+        function findAll() {
         	$scope.registers = CityService.findAll();
         }
         
@@ -57,6 +57,6 @@
         function removeRegister() {
         	CityService.remove($scope.register, $scope.registers);
         }    
-        
-    }     	
+    }     
+    
 })();

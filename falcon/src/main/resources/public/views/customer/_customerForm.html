@@ -26,6 +26,8 @@
 			<inputtext label="CPF" type="text" ngmodel="register.document"></inputtext>
 			<itemselector kind="CITY" 
 						  label="Cidade" 
+						  model="register.city"
+						  listcontroller="CityListController"
 						  required="true"
 						  columntitles="['ID', 'Nome', 'Cep', 'Estado']"
 		 				  valuestolist="['id', 'name', 'zipCode', 'country']">

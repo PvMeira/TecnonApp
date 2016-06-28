@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  * @author irlampert1
@@ -18,6 +19,7 @@ public class Customer
 	private String name;
 	private String document;
 	private String observation;
+	private City city;
 	
 	public Customer() {
 	}
@@ -60,6 +62,15 @@ public class Customer
 	
 	public void setObservation(String observation) {
 		this.observation = observation;
+	}
+	
+	@ManyToOne
+	public City getCity() {
+		return city;
+	}
+	
+	public void setCity(City city) {
+		this.city = city;
 	}
 
 	@Override
