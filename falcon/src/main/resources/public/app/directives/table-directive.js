@@ -26,14 +26,21 @@
 		.directive('tablepl', function($parse) {
 			return {
 				scope : {
+					tableid: '@',
 					selectaction: '&', //Na declaração do atributo, obrigatoriamente o parametro precisa ser 'item'. Ex.: 'selectUser(item)'
 					removeaction: '&',
 					registers: '=',
 					columntitles: '=',
 					valuestolist: '=',
 					hideactions: '@',
-					pagetoedit: '@'
+					hidetitleactions: '@',
+					pagetoedit: '@',
+					rowstyle: '@'
 				},
+				transclude: {
+					'customtableactions': '?custom-actions'
+				},
+				replace: true,
 				restrict : 'E',
 				templateUrl: '/views/directive-templates/tablepl-template.html',
 				

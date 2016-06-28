@@ -30,16 +30,25 @@
 		    width= "80%">
 	    
 			<dialog-body>
-				<tablepl registers=registers 
+				<tablepl tableid="item-selector-table"
+						 registers=registers 
 						 hideactions="true"
 						 columntitles=columntitles
-						 valuestolist=valuestolist>
+						 valuestolist=valuestolist
+						 rowstyle="cursor: pointer;">
+					 <custom-actions>
+					 	<span>SIM</span>
+					 
+					 	<a href="" class="btn btn-danger table-action" ng-click="selectRegister(item)" 
+							data-dismiss="modal">
+							Selecionar
+						</a>
+					 </custom-actions>
 				</tablepl>
 			</dialog-body>
 			
 			<dialog-footer>
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<button type="button" class="btn btn-primary" ng-click="fireConfirmAction()" data-dismiss="modal">Confirmar</button>
 			</dialog-footer>
 			
 	</dialog>

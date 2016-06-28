@@ -50,6 +50,11 @@
 					var type = scope.kind;
 					scope.icon = Kinds[type].icon; 
 					scope.title = Kinds[type].name;
+					
+					scope.selectRegister = function(item) {
+						console.log(item);
+						scope.model = item;
+					}
 				}
 			};
 		})
