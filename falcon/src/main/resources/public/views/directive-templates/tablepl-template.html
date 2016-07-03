@@ -6,25 +6,21 @@
 			        <td ng-repeat='item in columntitles'>
 				    	{{item}}
 			        </td>
-		            <td style='width: 240px;' ng-if="!hidetitleactions">Ações</td>
+		            <td style='width: 240px;' ng-if="!hideactions">Ações</td>
 	            </tr>
 		    </thead>
 		    <tbody>
-		        <tr ng-repeat='item in registers' style="{{rowstyle}}">
+		        <tr ng-repeat='item in registers' style="{{rowstyle}}" ng-click="fireRowSelected(item)">
 		        	<td ng-repeat='value in valuestolist'>
 		        		{{item[value]}}
 		        	</td>
 		            
-		            <td ng-if="!hidetitleactions">
-	            		<div ng-transclude="customtableactions"></div>
-		            	
-		            	<div ng-if="!hideactions">
-			            	<a href='{{pagetoedit}}/{{item.id}}' ng-click='fireSelectAction(item)' 
-			            		class='btn btn-primary table-action' style='margin-right: 5px;' > 
-			            		Editar 
-			            	</a>
-			            	<tableremovebutton selectaction='fireSelectAction(item)' removeaction='removeaction()'></tableremovebutton>
-		            	</div>
+		            <td ng-if="!hideactions">
+		            	<a href='{{pagetoedit}}/{{item.id}}' ng-click='fireSelectAction(item)' 
+		            		class='btn btn-primary table-action' style='margin-right: 5px;' > 
+		            		Editar 
+		            	</a>
+		            	<tableremovebutton selectaction='fireSelectAction(item)' removeaction='removeaction()'></tableremovebutton>
 		            </td>           
 		        </tr>
 		    </tbody>

@@ -7,48 +7,49 @@
 		<div style="display: flex;">
 			<input name="{{label}}" 
 				disabled="true" 
-				ng-model="ngmodel" 
+				ng-model=value 
 				style="background: white; cursor: default;"
 				placeholder="{{label}}" 
 				class="form-control input-form-input" 
 				ng-required=required>
 
-			<div data-toggle="modal" data-target="#registersDialog" style="margin-top: -5px;">
-				<span class="glyphicon glyphicon-folder-open itemselector-icon" aria-hidden="true" ></span>
+			<div style="margin-top: -5px; padding-left: 20px;">
+				<div data-toggle="modal" data-target="#registersDialog">
+					<span class="glyphicon glyphicon-folder-open itemselector-icon" aria-hidden="true" ></span>
+				</div>
 			</div>
 			
-			<div data-toggle="modal" data-target="#registersDialog" style="margin-top: -5px;">	
-				<span class="glyphicon glyphicon-erase itemselector-icon" aria-hidden="true"></span>
+			<div style="margin-top: -5px; padding-left: 20px;">
+				<div data-toggle="modal" data-target="#confirmClear">	
+					<span class="glyphicon glyphicon-erase itemselector-icon" aria-hidden="true"></span>
+				</div>
 			</div>
 			
 		</div>
 	</div>
 
+	<dialogconfirm modalid="confirmClear"
+		           text="Remover {{label}} selecionado(a)?"
+		           action="fireClearAction()"/>
+
 	<dialog modalid="registersDialog"
 		    icon={{icon}}
 		    title={{title}}
-		    width= "80%">
+		    width= "60%">
 	    
 			<dialog-body>
 				<tablepl tableid="item-selector-table"
-						 registers=registers 
+						 registers=registers
+						 selectaction="selectRegister(item)"
+						 rowselection="true" 
 						 hideactions="true"
 						 columntitles=columntitles
 						 valuestolist=valuestolist
-						 rowstyle="cursor: pointer;">
-					 <custom-actions>
-					 	<span>SIM</span>
-					 
-					 	<a href="" class="btn btn-danger table-action" ng-click="selectRegister(item)" 
-							data-dismiss="modal">
-							Selecionar
-						</a>
-					 </custom-actions>
-				</tablepl>
+						 rowstyle="cursor: pointer;"/>
 			</dialog-body>
 			
 			<dialog-footer>
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				<button id="chooserDialogButtonId" type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 			</dialog-footer>
 			
 	</dialog>

@@ -31,12 +31,13 @@
 			};
 		})
 		
-		.directive('itemselector', function() {
+		.directive('chooser', function() {
 			return {
 				restrict : 'E',
 				scope : {
 					label: '@',
 					required: '@',
+					value: '=',
 					model: '=',
 					columntitles: '=',
 					valuestolist: '=',
@@ -45,15 +46,19 @@
 				controller: '@',
 				name: 'listcontroller',
 				replace: true,
-				templateUrl: '/views/directive-templates/itemselector-template.html',
+				templateUrl: '/views/directive-templates/chooser-template.html',
 				link : function(scope, elem) {
 					var type = scope.kind;
 					scope.icon = Kinds[type].icon; 
 					scope.title = Kinds[type].name;
 					
 					scope.selectRegister = function(item) {
-						console.log(item);
 						scope.model = item;
+						$('#chooserDialogButtonId').click();
+					}
+					
+					scope.fireClearAction = function() {
+						scope.model = null;
 					}
 				}
 			};

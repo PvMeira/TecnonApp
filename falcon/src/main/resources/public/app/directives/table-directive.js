@@ -33,7 +33,7 @@
 					columntitles: '=',
 					valuestolist: '=',
 					hideactions: '@',
-					hidetitleactions: '@',
+					rowselection: '@',
 					pagetoedit: '@',
 					rowstyle: '@'
 				},
@@ -45,6 +45,12 @@
 				templateUrl: '/views/directive-templates/tablepl-template.html',
 				
 				link : function(scope, elem, attrs) {
+					scope.fireRowSelected = function(item) {
+						if (scope.rowselection) {
+							scope.fireSelectAction(item);
+						}
+					}
+					
 					scope.fireSelectAction = function(item) {
 						scope.selectaction({item: item});
 					}
